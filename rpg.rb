@@ -1,14 +1,35 @@
-class Player
+require 'pry'
+
+class Actor
   def to_s
     "@"
   end
 end
 
+class Board
+  def initialize
+    @board = Array.new(18) { Array.new(50, 0) }
+  end
+
+  def each(&block)
+    board.each { |row| yield(row) }
+  end
+
+  def []=(x, y, observer)
+    board[x][y] = observer
+  end
+
+  private
+  attr_reader :board
+
+end
+
 class View
   attr_accessor :board
 
-  def initialize(board=[[Player.new,0,0],[0,0,0]])
+  def initialize(board=Board.new)
     @board = board
+    board[10, 1] = Actor.new
   end
 
   def render
