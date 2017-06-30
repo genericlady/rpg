@@ -12,3 +12,6 @@ Patterns in order to to drive home an idea of what they are. There are
 parts of the code where simple good OO design would solve it. This is because
 you should only apply patterns when and where they make sense. Consider the
 implementation of this project to be forced and artificial.
+
+## Observer Pattern
+`Board` is being implemented with inspiration from the Observer Pattern.
